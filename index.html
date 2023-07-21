@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>云中心</title>
+    <link rel="shortcut icon" href="https://www.xfabe.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/normalize.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+		.popup {
+		  display: none;
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 100%;
+		  background-color: rgba(0, 0, 0, 0.2); /* 背景透明度为0.5 */
+		}
+
+		.popup-content {
+		  position: absolute;
+		  width: 80%;
+		  height: 30%;
+		  top: 50%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
+		  background-color: #fff;
+		  padding: 20px;
+		  border-radius: 5px;
+		}
+
+		.close {
+		  position: absolute;
+		  
+		  top: 10px;
+		  right: 10px;
+		  cursor: pointer;
+		}
+
+  </style>
+    <script src="static/js/jquery.min.js"></script>
+    <script>
+        var ua = navigator.userAgent.toLowerCase();
+        var isWeixin = ua.indexOf('micromessenger') != -1;
+        if (!isWeixin) {
+            window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=888"
+        }
+    </script>
+</head>
+
+<body>
+    <section class="content">
+        <div class="box">
+            <img src="static/picture/dj.jpg" alt="">
+            <!-- 名称 -->
+            <h2>迪迦售后中心</h2>
+            <!-- 售后 -->
+            <div class="as">
+                <p>说明中心必看</p>
+                <p>本平台发布均来自互联网</p>
+				
+            </div>
+            <!-- 超链接 -->
+            <ul class="site">
+                <li><a href="/honey.html" target="_blank" rel="noopener noreferrer">学习通订单</a></li>
+            <li><a href="/jd.html" target="_blank" rel="noopener noreferrer">1.订单中心</a></li>
+             <li><a href="#" onclick="openPopup()" rel="noopener noreferrer">2.说明中心</a></li>
+                <li><a href="http://world.ydzlqun9.shop/" target="_blank" rel="noopener noreferrer">3.在线下单</a></li>
+                <li><a href="img/迪迦查题.png" target="_blank" rel="noopener noreferrer">4.查题:迪迦查题</a></li>
+                <li><a href="javascript:;" target="_blank" rel="noopener noreferrer">5.客户中心[暂不可用]</a></li>
+
+            </ul>
+        </div>
+       
+    </section>
+     <div id="popup" class="popup">
+          <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h3 style="color:green;">说明中心</h3>
+            <p style="color:green;">售后问题：</p>
+            <p style="color:green;">分享价因价格优惠所以售后时间为三十天,下单日算起！！！</p>
+            
+          </div>
+        </div>
+    <script src="static/js/flexible.js"></script>
+    <script>
+function openPopup() {
+  document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+</script>
+</body>
+
+</html>
