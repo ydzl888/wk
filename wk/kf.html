@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>在线客服</title>
+  <link rel="icon" type="image/x-icon" href="https://www.loliapi.com/acg/pp/">
+  <link rel="apple-touch-icon" href="https://www.loliapi.com/acg/pp/">
+  <meta name="apple-mobile-web-app-title" content="在线客服">
+  <link rel="bookmark" href="https://www.loliapi.com/acg/pp/">
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://www.loliapi.com/acg/pp/">
+  <meta name="description" content="关注迪迦查题微信公众号，获取更多最新的设计、科技、开发相关文章。">
+  <meta name="theme-color" content="#f6f7f8">
+  <style>
+  :root {
+  --background: #f6f7f8;
+  --card-bg: #fff;
+  --second-bg: #F7F7F7;
+  --font-color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1e2020;
+    --card-bg: #0f0f0f;
+    --second-bg: #303134;
+    --font-color: #fff;
+  }
+}
+
+body {
+  background: var(--background);
+  margin: 0;
+  padding: 0;
+}
+
+.wechatOA {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--vh);
+}
+
+.wechat {
+  margin: auto;
+}
+
+.wechat-card {
+  background: var(--card-bg);
+  max-width: 428px;
+  max-height: 569px;
+  border-radius: 16px;
+  padding: 24px 36px 20px 36px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.qrcode {
+  width: 256px;
+  height: 256px;
+  display: flex;
+  border-radius: 12px;
+}
+
+.tips {
+  font-size: 14px;
+  color: var(--font-color);
+  opacity: 0.5;
+  margin-top: 8px;
+}
+
+.wechatOA-card {
+  width: 100%;
+  display: flex;
+  margin-top: 16px;
+  background: var(--second-bg);
+  padding: 18px;
+  border-radius: 16px;
+  align-items: center;
+}
+
+.wechatOA-head {
+  width: 48px;
+  height: 48px;
+  background-image: url(https://www.loliapi.com/acg/pp/);
+  border-radius: 68px;
+  background-size: contain;
+  margin-right: 16px;
+}
+
+.wechatOA-name {
+  font-weight: bold;
+}
+
+.wechatOA-description {
+  font-size: 12px;
+  color: var(--font-color);
+  opacity: 0.5;
+}
+
+a.footer-item {
+  font-size: 14px;
+  color: var(--font-color);
+  opacity: 0.5;
+  text-decoration: none;
+  margin: 20px 0;
+  transition: 0.3s;
+  position: relative;
+  margin-right: 20px;
+}
+
+.footer-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #ccc;
+}
+
+.footer-item:last-child {
+  margin-right: 0;
+}
+
+a.footer-item:visited {
+  color: var(--font-color);
+}
+
+a.footer-item:hover {
+  color: #1ba059;
+  opacity: 1;
+  text-shadow: 0px 0px 8px #1ba05914;
+}
+
+.wechat-need-reply {
+  background: var(--card-bg);
+  max-width: 328px;
+  max-height: 569px;
+  border-radius: 16px;
+  padding: 24px 36px 20px 36px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+}
+
+img.wechat-need-reply-copybtn-img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+  margin-left: 5px;
+}
+
+.wechat-need-reply-copybtn {
+  display: flex;
+  padding: 12px 12px 12px 20px;
+  background: #1ba059;
+  color: #fff;
+  border-radius: 12px;
+  margin: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.wechat-need-reply-copybtn:hover {
+  opacity: 0.8;
+}
+
+span#wechat-need-reply-text {
+  line-height: 1;
+  margin: auto;
+}
+
+span.wechat-need-reply-front {
+  font-size: 14px;
+  color: var(--font-color);
+  font-weight: bold;
+}
+
+span.wechat-need-reply-back {
+  font-size: 14px;
+  color: var(--font-color);
+}
+
+.footer {
+  display: flex;
+}
+
+.wechatOA-info {
+  color: var(--font-color);
+}
+  </style>
+</head>
+<body>
+  <div class="wechatOA">
+    <div class="wechat">
+      <div class="wechat-need-reply" id="wechat-need-reply">
+        <span class="wechat-need-reply-front">在线客服</span>
+        <div class="wechat-need-reply-copybtn" id="wechat-need-reply-copybtn">
+          <span class="wechat-need-reply-text" id="wechat-need-reply-text">微信小程序</span>
+          <img class="wechat-need-reply-copybtn-img" alt="copy" src="https://img.ydzl.fun/images/logo/copy.png">
+        </div>
+        <span class="wechat-need-reply-back" id="wechat-need-reply-back">售后问题的在线客服</span>
+  
+      </div>
+      <div class="wechat-card">
+        <img src="https://img.ydzl.fun/images/logo/kf.png" class="qrcode" alt="qrcode">
+        <div class="tips">扫描二维码关注公众号</div>
+        <div class="wechatOA-card">
+          <div class="wechatOA-head"></div>
+          <div class="wechatOA-info">
+            <div class="wechatOA-name" id="wechatOA-name">售后服务</div>
+            <div class="wechatOA-description" id="wechatOA-description">扫码联系小喵</div>
+          </div>
+        </div>
+      </div>
+    </div>
+   <!-- <div class="footer">
+      <a class="footer-item" href="链接" title="帮助" target="_blank">如何扫码</a>
+      <a class="footer-item" href="链接" title="Powered by 迪迦查题" target="_blank">同款主题</a>
+    </div>-->
+
+  </div>
+  <script>
+  const oa_name = "在线客服";
+const oa_description = "售后客服";
+const web_beian = " 桂ICP备2024024974号";
+
+function replaceText(elementId, newText) {
+  var element = document.getElementById(elementId);
+  if (element) {
+      element.innerText = newText;
+  } else {
+      console.log("Element with ID '" + elementId + "' not found.");
+  }
+}
+
+replaceText('wechatOA-name', oa_name);
+replaceText('wechatOA-description', oa_description)
+replaceText('web-beian', web_beian)
+  </script>
+  <script>
+  // 改进vh
+const vh = window.innerHeight * 1;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+window.addEventListener('resize', () => {
+  let vh = window.innerHeight * 1;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  // 获取URL参数
+  const urlParams = new URLSearchParams(window.location.search);
+  const replyText = urlParams.get('replyText');
+
+  // 检测是否有replyText参数
+  if (replyText) {
+      // 如果有参数，则更新wechat-need-reply-text的内容
+      document.getElementById('wechat-need-reply-text').textContent = replyText;
+  } else {
+      // 如果没有参数，则隐藏wechat-need-reply部分
+      document.getElementById('wechat-need-reply').style.display = 'none';
+  }
+  
+  document.getElementById('wechat-need-reply-copybtn').addEventListener('click', function() {
+      var textToCopy = document.getElementById('wechat-need-reply-text').innerText;
+      navigator.clipboard.writeText(textToCopy).then(function() {
+          console.log('Text copied to clipboard');
+          // Change the text and color of wechat-need-reply-back
+          var replyBackElement = document.getElementById('wechat-need-reply-back');
+          replyBackElement.innerText = '复制成功';
+          replyBackElement.style.color = 'green';
+      })
+      .catch(function(err) {
+          console.error('Could not copy text: ', err);
+      });
+  });
+});
+  </script>
+</body>
+</html>
